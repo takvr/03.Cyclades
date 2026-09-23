@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Κουίζ Γνώσεων για τις Κυκλάδες | Cyclades Matcher</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Πόσο καλά γνωρίζεις τα νησιά των Κυκλάδων; Τέσταρε τις γνώσεις σου στο μεγάλο Trivia κουίζ και δες το σκορ σου!">
+    <link rel="icon" type="image/png" href="./images/logo.png">
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="layout.js"></script>
+    <style>
+        /* Μικρές έξτρα ρυθμίσεις ειδικά για το Trivia */
+        .trivia-score {
+            font-size: 48px;
+            font-weight: bold;
+            color: #0077b6;
+            margin: 20px 0;
+        }
+        .correct-ans {
+            background-color: #2a9d8f !important;
+            color: white !important;
+            border-color: #2a9d8f !important;
+        }
+        .wrong-ans {
+            background-color: #e63946 !important;
+            color: white !important;
+            border-color: #e63946 !important;
+        }
+        .feedback-text {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #495057;
+        }
+    </style>
+</head>
+<body>
+
+    <section class="quiz-section-wrapper" style="min-height: 80vh;">
+        <div class="quiz-container">
+            <h1>🧠 Κυκλάδες Trivia Quiz</h1>
+            <div id="progress-text" class="subtitle">Ερώτηση 1 από ...</div>
+            
+            <!-- Ενότητα Ερωτήσεων -->
+            <div id="trivia-section">
+                <div id="trivia-question" class="question">Φορτώνει την ερώτηση...</div>
+                <div id="trivia-answers" class="btn-container"></div>
+                <!-- 🔑 ΜΕΤΑΦΟΡΑ ΕΔΩ ΜΕΣΑ: Τώρα θα κρύβεται 100% αυτόματα μαζί με την ερώτηση -->
+    <button id="next-question-btn" class="hide" style="margin: 25px auto 0 auto; background-color: #0077b6; color: white; text-align: center; display: block; width: 200px; border-radius: 5px;">
+        Επόμενη Ερώτηση
+    </button>
+            </div>
+
+              <!-- 🔑 ΤΟ ΝΕΟ ΚΟΥΜΠΙ ΓΙΑ ΤΗΝ ΕΠΟΜΕΝΗ ΕΡΩΤΗΣΗ -->
+               <!-- ΚΟΥΜΠΙ ΓΙΑ ΤΗΝ ΕΠΟΜΕΝΗ ΕΡΩΤΗΣΗ ΧΩΡΙΣ ΒΕΛΟΣ 
+<button id="next-question-btn" class="hide" style="margin: 25px auto 0 auto; background-color: #0077b6; color: white; text-align: center; display: block; width: 200px; border-radius: 5px;">
+    Επόμενη Ερώτηση
+</button>   -->
+
+
+            <!-- Ενότητα Αποτελέσματος -->
+            <div id="trivia-result" class="hide">
+                <div class="result-title">Το σκορ σου είναι:</div>
+                <div id="score-display" class="trivia-score">0 / 0</div>
+                <div id="feedback" class="feedback-text"></div>
+                <button onclick="restartTrivia()" style="margin: 20px auto 0 auto; background-color: #0077b6; color: white; text-align: center; display: block; width: 200px;">Παίξε Ξανά</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Σύνδεση με τη λογική του Trivia -->
+    <script src="trivia.js"></script>
+</body>
+</html>

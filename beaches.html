@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Οι Κορυφαίες Παραλίες των Κυκλάδων | Cyclades Matcher</title>
+    
+    <!-- SEO & Favicon -->
+    <meta name="description" content="Ανακάλυψε τις πιο διάσημες, εξωτικές και σεληνιακές παραλίες στις Κυκλάδες. Ο απόλυτος οδηγός για τα καλύτερα νερά του Αιγαίου.">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="layout.js"></script>
+    
+    <style>
+        .beaches-page-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .intro-text {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #495057;
+            margin-bottom: 40px;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            border-left: 5px solid #0077b6;
+        }
+
+        /* Λίστα Παραλιών */
+        .beach-long-card {
+            background: white;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            margin-bottom: 35px;
+            display: flex;
+            border: 1px solid #e9ecef;
+        }
+
+        .beach-long-img {
+            flex: 1;
+            min-width: 350px;
+            max-width: 350px;
+            object-fit: cover;
+        }
+
+        .beach-long-content {
+            flex: 2;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .beach-long-content h3 {
+            color: #0077b6;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .beach-tag {
+            display: inline-block;
+            background-color: #e3f2fd;
+            color: #0077b6;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            align-self: flex-start;
+        }
+
+        .beach-long-content p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #495057;
+            margin-bottom: 20px;
+        }
+
+        .island-redirect-btn {
+            align-self: flex-start;
+            background-color: #0077b6;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .island-redirect-btn:hover {
+            background-color: #0096c7;
+        }
+
+        /* 📱 Responsive για κινητά */
+        @media screen and (max-width: 768px) {
+            .beach-long-card {
+                flex-direction: column;
+            }
+            .beach-long-img {
+                min-width: 100%;
+                height: 220px;
+            }
+            .beach-long-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div style="max-width: 1000px; margin: 40px auto 0 auto; padding: 0 20px;">
+        <div class="page-header" style="text-align: left;">
+            <h2>🏖️ Οι Καλύτερες Παραλίες των Κυκλάδων</h2>
+            <p style="color: #6c757d; margin-top: 5px;">Από απόκοσμα ηφαιστειακά τοπία μέχρι τροπικές αμμουδιές, ανακάλυψε τα πιο μαγικά νερά του Αιγαίου.</p>
+        </div>
+    </div>
+
+    <div class="beaches-page-container">
+        
+        <div class="intro-text">
+            Οι Κυκλάδες φημίζονται παγκοσμίως για την ποικιλία των ακτών τους. Λόγω της ηφαιστειακής φύσης πολλών νησιών αλλά και των ισχυρών ανέμων, κάθε κόλπος κρύβει μια εντελώς διαφορετική γεωλογική ιστορία. Παρακάτω συγκεντρώσαμε τις 10 πιο ξακουστές παραλίες που πρέπει να επισκεφτείς έστω και μια φορά στη ζωή σου.
+        </div>
+
+        <!-- Παραλία 1: Σαρακήνικο -->
+        <div class="beach-long-card">    
+            <img src="images/paralies/sarakiniko.jpg" alt="Σαρακήνικο Μήλος" class="beach-long-img" loading="lazy">         
+            <div class="beach-long-content">
+                <h3>Σαρακήνικο</h3>
+                <span class="beach-tag">📍 Μήλος</span>                
+                <p>Το Σαρακήνικο είναι το πιο φωτογραφημένο μέρος του Αιγαίου. Τα ολόλευκα, λεία ηφαιστειακά πετρώματα έχουν σμιλευτεί από την αλμύρα και τους βοριάδες, δημιουργώντας την ψευδαίσθηση ότι περπατάς στην επιφάνεια της σελήνης. Τα κατακάθαρα τυρκουάζ νερά κάνουν μια συγκλονιστική αντίθεση με το λευκό του βράχου.</p>
+                <a href="island.html?name=milos" class="island-redirect-btn">Δες τον Οδηγό Μήλου →</a>
+                <!-- 🔑 ΤΟ CREDIT ΣΤΟ ΤΕΡΜΑ ΚΑΤΩ ΜΕΡΟΣ (BOTTOM) ΤΗΣ ΚΑΡΤΑΣ -->
+                <div style="margin-top: 15px; border-top: 1px dashed #edf2f4; padding-top: 8px;">
+                    <span style="font-size: 11px; color: #8d99ae; font-style: italic; display: block;">
+                        📸 Φωτογραφία: By <a href="https://commons.wikimedia.org/wiki/File:Aerial_view_of_Sarakiniko_Beach_on_Milos_Island,_Greece.jpg">dronepicr</a>, <a href="https://creativecommons.org/licenses/by/2.0">CC BY 2.0</a>, via Wikimedia Commons
+                    </span>
+                </div>
+            </div>   
+        </div>
+
+        <!-- Παραλία 2: Κολώνα -->
+        <div class="beach-long-card">
+            <img src="images/paralies/kolona.jpg" alt="Κολώνα Κύθνος" class="beach-long-img" loading="lazy">
+            <div class="beach-long-content">
+                <h3>Κολώνα</h3>
+                <span class="beach-tag">📍 Κύθνος</span>
+                <p>Ένα σπάνιο γεωλογικό φαινόμενο. Μια στενή λωρίδα χρυσής άμμου μήκους 240 μέτρων ενώνει το νησί της Κύθνου με τη βραχονησίδα του Αγίου Λουκά. Το αποτέλεσμα είναι μια διπλή παραλία, όπου ο επισκέπτης μπορεί να κολυμπήσει σε δύο διαφορετικούς κόλπους ταυτόχρονα, πάντα προστατευμένος από τα μελτέμια.</p>
+                <a href="island.html?name=kythnos" class="island-redirect-btn">Δες τον Οδηγό Κύθνου →</a>
+            </div>
+        </div>
+
+        <!-- Παραλία 3: Πορί -->
+        <div class="beach-long-card">
+            <img src="images/paralies/pori.jpg" alt="Πορί Κουφονήσια" class="beach-long-img" loading="lazy">
+            <div class="beach-long-content">
+                <h3>Πορί</h3>
+                <span class="beach-tag">📍 Κουφονήσια</span>
+                <p>Το Πορί μοιάζει με εξωτική πισίνα της Καραϊβικής μεταφερόμενη στην καρδιά των Κυκλάδων. Πρόκειται για έναν τεράστιο, απάνεμο κόλπο με ψιλή, λευκή άμμο και απίστευτα, διάφανα γαλαζοπράσινα νερά. Πολύ κοντά της βρίσκονται και τα περίφημα γεωλογικά αξιοθέατα «Το Μάτι του Διαβόλου» και το «Γάλα».</p>
+                <a href="island.html?name=koufonisia" class="island-redirect-btn">Δες τα Κουφονήσια →</a>
+            </div>
+        </div>
+
+        <!-- Παραλία 4: Άγιος Προκόπιος -->
+        <div class="beach-long-card">
+            <img src="images/paralies/agiosprokopios.jpg" alt="Άγιος Προκόπιος Νάξος" class="beach-long-img" loading="lazy">
+            <div class="beach-long-content">
+                <h3>Άγιος Προκόπιος</h3>
+                <span class="beach-tag">📍 Νάξος</span>
+                <p>Ψηφισμένη επανειλημμένα ως μία από τις ομορφότερες παραλίες της Ευρώπης. Το χαρακτηριστικό της γνώρισμα είναι το πολύ ψιλό, στρογγυλό λευκό βοτσαλάκι που μοιάζει με άμμο αλλά έχει το τεράστιο πλεονέκτημα ότι δεν κολλάει πάνω στο σώμα. Τα νερά της είναι πεντακάθαρα, βαθιά και έχουν ένα μοναδικό έντονο μπλε χρώμα.</p>
+                <a href="island.html?name=naxos" class="island-redirect-btn">Δες τον Οδηγό Νάξου →</a>
+            </div>
+        </div>
+
+        <!-- Παραλία 5: Μαγγανάρι -->
+        <div class="beach-long-card">
+            <img src="images/paralies/manganari.jpg" alt="Μαγγανάρι Ίος" class="beach-long-img" loading="lazy">
+            <div class="beach-long-content">
+                <h3>Μαγγανάρι</h3>
+                <span class="beach-tag">📍 Ίος</span>
+                <p>Ένα παραδεισένιο σύμπλεγμα από πέντε συνεχόμενους κολπίσκους με χρυσή άμμο και ρηχά, καταπράσινα νερά, ιδανικά για χαλάρωση. Το Μαγγανάρι είναι προστατευμένο από τους ανέμους και προσφέρει μια απίστευτη αίσθηση γαλήνης. Εκεί γυρίστηκαν μερικές από τις πιο εμβληματικές σκηνές της ταινίας «Το Απέραντο Γαλάζιο».</p>
+                <a href="island.html?name=ios" class="island-redirect-btn">Δες τον Οδηγό Ίου →</a>
+            </div>
+        </div>
+
+        <!-- Παραλία 6: Πράσα -->
+        <div class="beach-long-card">
+            <img src="images/paralies/prasa.jpg" alt="Πράσα Κίμωλος" class="beach-long-img" loading="lazy">
+            <div class="beach-long-content">
+                <h3>Πράσα</h3>
+                <span class="beach-tag">📍 Κίμωλος</span>
+                <p>Η παραλία των Πράσων είναι διάσημη για την κατάλευκη, χοντρή άμμο της, η οποία οφείλεται στα πετρώματα κιμωλίας του νησιού. Τα νερά της έχουν ένα εντυπωσιακό, φωτεινό τιρκουάζ χρώμα που θυμίζει τροπικό προορισμό. Είναι οργανωμένη με μια μικρή boho καντίνα, διατηρώντας όμως την απόλυτη ηρεμία της.</p>
+                <a href="island.html?name=kimolos" class="island-redirect-btn">Δες τον Οδηγό Κιμώλου →</a>
+            </div>
+        </div>
+
+        <!-- Παραλία 7: Ρούκουνας -->
+        <div class="beach-long-card">
+            <img src="images/paralies/roukounas.jpg" alt="Ρούκουνας Ανάφη" class="beach-long-img" loading="lazy">
+            <div class="beach-long-content">
+                <h3>Ρούκουνας</h3>
+                <span class="beach-tag">📍 Ανάφη</span>
+                <p>Ο Ρούκουνας δεν είναι απλώς μια παραλία, αλλά ένας θρύλος για τους εναλλακτικούς ταξιδιώτες. Είναι η μεγαλύτερη αμμουδιά του νησιού, με πεντακάθαρα, βαθιά νερά και μεγάλα αρμυρίκια. Αποτελεί το πιο διάσημο σημείο συνάντησης για ελεύθερο camping στην Ελλάδα, προσφέροντας μια μοναδική αίσθηση ελευθερίας.</p>
+                <a href="island.html?name=anafi" class="island-redirect-btn">Δες τον Οδηγό Ανάφης →</a>
+            </div>
+        </div>
+
+                <!-- Παραλία 5: Κόκκινη Παραλία -->
+        <div class="beach-long-card">
+            <img src="images/paralies/kokkiniparalia.jpg" alt="Κόκκινη Παραλία Σαντορίνη" class="beach-long-img" loading="lazy">
+            <div class="beach-long-content">
+                <h3>Κόκκινη Παραλία</h3>
+                <span class="beach-tag">📍 Σαντορίνη</span>
+                <p>Ένα από τα πιο επιβλητικά και απόκοσμα τοπία της Ελλάδας. Η Κόκκινη Παραλία περιβάλλεται από κάθετους, θεόρατους κόκκινους ηφαιστειακούς γκρεμούς που κόβουν την ανάσα. Το σκούρο μπλε της θάλασσας έρχεται σε συγκλονιστική χρωματική αντίθεση με το έντονο κεραμιδί χρώμα της άμμου και των βράχων.</p>
+                <a href="island.html?name=santorini" class="island-redirect-btn">Δες τον Οδηγό Σαντορίνης →</a>
+            </div>
+        </div>
+
+        <!-- Παραλία 6: Χρυσή Ακτή -->
+        <div class="beach-long-card">
+            <img src="images/paros.jpg" alt="Χρυσή Ακτή Πάρος" class="beach-long-img" loading="lazy">
+            <div class="beach-long-content">
+                <h3>Χρυσή Ακτή</h3>
+                <span class="beach-tag">📍 Πάρος</span>
+                <p>Η Χρυσή Ακτή είναι η μεγαλύτερη και ίσως η πιο εντυπωσιακή αμμουδιά της Πάρου. Η ψιλή άμμος της λαμπιρίζει κάτω από τον ήλιο, δικαιολογώντας απόλυτα το όνομά της. Διαθέτει πεντακάθαρα, ρηχά νερά, ενώ λόγω των ιδανικών ανέμων της περιοχής αποτελεί έναν παγκόσμιο παράδεισο για windsurfing και kitesurfing.</p>
+                <a href="island.html?name=paros" class="island-redirect-btn">Δες τον Οδηγό Πάρου →</a>
+            </div>
+        </div>
+
+        <!-- Παραλία 9: Της Γριάς το Πήδημα -->
+        <div class="beach-long-card">
+            <img src="images/paralies/griaspidima.jpg" alt="Της Γριάς το Πήδημα Άνδρος" class="beach-long-img" loading="lazy">
+            <div class="beach-long-content">
+                <h3>Της Γριάς το Πήδημα</h3>
+                <span class="beach-tag">📍 Άνδρος</span>
+                <p>Μία από τις πιο εμβληματικές και viral παραλίες των Κυκλάδων. Το κύριο χαρακτηριστικό της είναι ένας τεράστιος, κατακόρυφος βράχος που ξεπηδά μέσα από το νερό, λίγα μέτρα από την ακτή. Η χρυσή άμμος, τα ρηχά καταπράσινα νερά και ο μύθος που περιβάλλει το όνομά της, την καθιστούν έναν μοναδικό προορισμό.</p>
+                <a href="island.html?name=andros" class="island-redirect-btn">Δες τον Οδηγό Άνδρου →</a>
+            </div>
+        </div>
+
+
+    </div>
+
+</body>
+</html>

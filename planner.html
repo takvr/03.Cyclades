@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Island Hopping Planner | Cyclades Matcher</title>
+    
+    <!-- SEO & Favicon -->
+    <meta name="description" content="Σχεδίασε το δικό σου Island Hopping στις Κυκλάδες! Επίλεξε τα νησιά που θέλεις να επισκεφτείς και φτιάξα τον απόλυτο ταξιδιωτικό οδηγό σου.">
+    <link rel="icon" type="image/png" href="./images/logo.png">
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="data.js"></script>
+    <script src="layout.js"></script>
+    
+    <style>
+        .planner-wrapper { max-width: 1100px; margin: 40px auto; padding: 0 20px; display: flex; gap: 30px; }
+        .planner-sidebar { flex: 1; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); min-width: 280px; max-height: 85vh; overflow-y: auto; }
+        .planner-content { flex: 2; }
+        .checkbox-group { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; }
+        .checkbox-item { display: flex; align-items: center; gap: 10px; font-size: 15px; cursor: pointer; padding: 5px; border-radius: 5px; transition: background 0.2s; }
+        .checkbox-item:hover { background-color: #f8f9fa; }
+        .checkbox-item input { width: 18px; height: 18px; cursor: pointer; }
+        .planned-island-card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 25px; border-left: 5px solid #0077b6; }
+        .planned-island-card h3 { color: #0077b6; font-size: 24px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
+        .planned-section { margin-top: 15px; }
+        .planned-section h4 { color: #0096c7; font-size: 16px; margin-bottom: 5px; }
+        .planned-section ul { padding-left: 20px; font-size: 14px; color: #495057; }
+        .empty-plan-message { background: white; padding: 40px; text-align: center; border-radius: 12px; color: #6c757d; font-size: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        
+        @media screen and (max-width: 768px) {
+            .planner-wrapper { flex-direction: column; }
+            .planner-sidebar { max-height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 🔑 Η ΔΙΟΡΘΩΣΗ: Προσθήκη wrapper για τέλεια ευθυγράμμιση -->
+    <div style="max-width: 1100px; margin: 40px auto 0 auto; padding: 0 20px;">
+        <div class="page-header" style="text-align: left;">
+            <h2>🗺️ Cyclades Island Hopper Planner</h2>
+            <p style="color: #6c757d; margin-top: 5px;">Φτιάξε το δικό σου custom δρομολόγιο επιλέγοντας τα νησιά που ονειρεύεσαι να επισκεφτείς!</p>
+        </div>
+    </div>
+
+    <div class="planner-wrapper">
+        <!-- Αριστερή Στήλη: Επιλογή Νησιών -->
+        <aside class="planner-sidebar">
+            <h4>📍 Επίλεξε Νησιά:</h4>
+            <div id="islands-checkboxes" class="checkbox-group"></div>
+        </aside>
+
+        <!-- Δεξιά Στήλη: Δυναμικό Πλάνο Ταξιδιού -->
+        <main class="planner-content">
+            <div id="itinerary-results">
+                <div class="empty-plan-message">
+                    🚢 Δεν έχεις επιλέξει νησιά ακόμα. Τσέκαρε μερικά νησιά από την αριστερή λίστα για να δημιουργήσεις το δρομολόγιό σου!
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="planner.js"></script>
+</body>
+</html>

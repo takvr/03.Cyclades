@@ -1,0 +1,956 @@
+ /* Γενικά στυλ και reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #edf2f4;
+            color: #2b2d42;
+            scroll-behavior: smooth; /* Για ομαλό scroll όταν πατάνε το κουμπί */
+        }
+
+        /* 1. Κυκλαδίτικο Μενού (Navbar) */
+        .navbar {
+            background-color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #0077b6;
+            text-decoration: none;
+        }
+
+        .navbar-menu {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .navbar-menu a {
+            text-decoration: none;
+            color: #495057;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.2s ease;
+        }
+
+        .navbar-menu a:hover {
+            color: #0096c7;
+        }
+
+        /* ==========================================
+   Στυλ για το Συνδυαστικό Λογότυπο (Εικόνα + Τίτλος)
+   ========================================== */
+/* ==========================================
+   Στυλ για το Συνδυαστικό Λογότυπο (Εικόνα + Τίτλος)
+   ========================================== */
+/* ==========================================
+   Στυλ για το Συνδυαστικό Λογότυπο (Εικόνα + Τίτλος)
+   ========================================== */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;             /* Απόσταση ανάμεσα στην εικόνα και το κείμενο */
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.logo-container:hover {
+    transform: scale(1.02); /* Μικρό εφέ μεγέθυνσης όταν περνάει το ποντίκι */
+}
+
+.nav-logo {
+    height: 60px;          /* 👌 Επαναφορά στο ιδανικό ύψος των 60px */
+    width: auto;           /* Διατηρεί τις σωστές αναλογίες της εικόνας */
+    object-fit: contain;
+}
+
+.nav-title {
+    font-size: 24px;       /* Μέγεθος γραμματοσειράς του τίτλου */
+    font-weight: bold;
+    color: #0077b6;        /* Το κυκλαδίτικο μπλε του project σου */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 0.5px;
+}
+
+/* 📱 Προσαρμογή για μικρά κινητά για να μην στριμώχνεται ο τίτλος */
+@media screen and (max-width: 400px) {
+    .nav-title {
+        font-size: 19px;   /* Μικραίνει ελαφρώς ο τίτλος σε πολύ μικρές οθόνες */
+    }
+    .nav-logo {
+        height: 50px;      /* Μικραίνει λίγο και η εικόνα */
+    }
+}
+
+
+
+        /* 2. Hero Section (Εικόνα Παραλίας/Νησιού) */
+        .hero {
+            /* Χρησιμοποιούμε μια πανέμορφη open-source εικόνα από τη Μήλο */
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+                        url('images/hero.jpg') no-repeat center center/cover;
+            height: 70vh; /* Πιάνει το 70% του ύψους της οθόνης */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .hero h2 {
+            font-size: 42px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.4);
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 600px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.4);
+        }
+
+        .hero-btn {
+            background-color: #0096c7;
+            color: white;
+            text-decoration: none;
+            padding: 15px 35px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .hero-btn:hover {
+            background-color: #0077b6;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        /* 3. Section για το Κουίζ */
+        .quiz-section-wrapper {
+            padding: 60px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #bde0fe, #edf2f4);
+        }
+
+        .quiz-container {
+            background-color: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.1);
+            max-width: 550px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            color: #0077b6;
+            margin-bottom: 5px;
+            font-size: 26px;
+        }
+
+        .subtitle {
+            color: #6c757d;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .question {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #2b2d42;
+            line-height: 1.4;
+        }
+
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        button {
+            background-color: #f8f9fa;
+            border: 2px solid #dee2e6;
+            padding: 14px 20px;
+            font-size: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: #212529;
+            font-weight: 500;
+            text-align: left;
+        }
+
+
+        
+
+        button:hover {
+            background-color: #0096c7;
+            color: white;
+            border-color: #0096c7;
+            transform: translateY(-2px);
+        }
+
+        .result-title {
+            font-size: 18px;
+            color: #495057;
+            margin-bottom: 10px;
+        }
+
+        .result {
+            font-size: 32px;
+            font-weight: bold;
+            color: #0077b6;
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        /* ???????????????????????????? */
+        /* --- CSS για το How it Works section --- */
+.how-it-works {
+    padding: 60px 5%;
+    background-color: white;
+    text-align: center;
+}
+
+.section-title h3 {
+    font-size: 28px;
+    color: #0077b6;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: #6c757d;
+    margin-bottom: 40px;
+    font-size: 16px;
+}
+
+.features-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.feature-card {
+    background: #f8f9fa;
+    padding: 30px 20px;
+    border-radius: 12px;
+    flex: 1;
+    min-width: 280px;
+    max-width: 350px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-card .icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.feature-card h4 {
+    font-size: 18px;
+    color: #2b2d42;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    font-size: 14px;
+    color: #6c757d;
+    line-height: 1.5;
+}
+
+/* --- CSS για το Footer --- */
+.footer {
+    background-color: #2b2d42;
+    color: #a2a2a2;
+    text-align: center;
+    padding: 25px;
+    font-size: 14px;
+}
+
+/* Ενεργό link στο μενού */
+.navbar-menu a.active {
+    color: #0077b6;
+    font-weight: 600;
+}
+
+
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (Για Κινητά και Τάμπλετ)
+   ========================================================================== */
+
+/* 📱 1. Για Κινητά τηλέφωνα (Οθόνες έως 600px) */
+@media screen and (max-width: 600px) {
+    /* Navbar: Το μενού γίνεται κάθετο για να μην στριμώχνεται */
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+
+    .navbar-menu {
+        gap: 15px;
+        flex-wrap: wrap; /* Αν δεν χωράνε, πάνε στην από κάτω γραμμή */
+        justify-content: center;
+    }
+
+    /* Hero Section: Μικραίνουν τα κείμενα για να μην πιάνουν όλη την οθόνη */
+    .hero {
+        height: 60vh; /* Λίγο πιο κοντό σε κινητά */
+        padding: 15px;
+    }
+
+    .hero h2 {
+        font-size: 28px; /* Πιο μικρός τίτλος */
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    .hero-btn {
+        padding: 12px 25px;
+        font-size: 16px;
+    }
+
+    /* Quiz Container: Παίρνει όλο το πλάτος της οθόνης με μικρά περιθώρια */
+    .quiz-section-wrapper {
+        padding: 30px 10px;
+    }
+
+    .quiz-container {
+        padding: 25px 15px;
+        border-radius: 10px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    .question {
+        font-size: 16px;
+    }
+
+    button {
+        padding: 12px 15px;
+        font-size: 14px; /* Πιο μικρά κουμπιά για να πατιούνται εύκολα με το δάχτυλο */
+    }
+
+    .result {
+        font-size: 26px;
+    }
+}
+
+/* 📐 2. Για Τάμπλετ (Οθόνες από 601px έως 900px) */
+@media screen and (min-width: 601px) and (max-width: 900px) {
+    .hero h2 {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 17px;
+    }
+
+    .quiz-container {
+        max-width: 90%; /* Στα τάμπλετ απλώνει όμορφα στο 90% της οθόνης */
+    }
+}
+
+
+
+
+/* ==========================================================================
+   ΑΝΑΒΑΘΜΙΣΗ ΑΙΣΘΗΤΙΚΗΣ ΓΙΑ ΤΟ ISLAND PLANNER
+   ========================================================================== */
+
+/* 1. Στυλ για τα Dropdowns των Ημερών (Sidebar) */
+.days-select {
+    padding: 6px 10px !important;
+    border-radius: 20px !important; /* Στρογγυλεμένες άκρες */
+    border: 2px solid #bde0fe !important; /* Απαλό κυκλαδίτικο γαλάζιο περίγραμμα */
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: #0077b6 !important; /* Έντονο μπλε κείμενο */
+    background-color: #f0f8ff !important; /* Πολύ απαλό μπλε φόντο */
+    cursor: pointer;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+.days-select:hover, .days-select:focus {
+    border-color: #0096c7 !important;
+    background-color: #e3f2fd !important;
+    box-shadow: 0 0 5px rgba(0, 150, 199, 0.2);
+}
+
+/* 2. Modern Design για τα Affiliate Κουμπιά (Booking / Ferryhopper) */
+.planned-island-card .travel-btn {
+    display: inline-flex /*!flex */;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px !important;
+    border-radius: 25px !important; /* Στρογγυλά premium κουμπιά */
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    color: white !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08) !important;
+    transition: all 0.25s ease !important;
+}
+
+/* Ειδικά εφέ για το Ferryhopper (Κόκκινο) */
+.planned-island-card .travel-btn[style*="background-color: #ff5a5f"] {
+    background-color: #ff5a5f !important;
+}
+.planned-island-card .travel-btn[style*="background-color: #ff5a5f"]:hover {
+    background-color: #e34a4f !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 90, 95, 0.3) !important;
+}
+
+/* Ειδικά εφέ για το Booking.com (Σκούρο Μπλε) */
+.planned-island-card .travel-btn[style*="background-color: #003580"] {
+    background-color: #003580 !important;
+}
+.planned-island-card .travel-btn[style*="background-color: #003580"]:hover {
+    background-color: #002254 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 53, 128, 0.3) !important;
+}
+
+/* 3. Μικρό συμμάζεμα για το link του Αναλυτικού Οδηγού */
+.planned-island-card a[href*="island.html"] {
+    font-weight: 600 !important;
+    transition: color 0.2s;
+}
+.planned-island-card a[href*="island.html"]:hover {
+    color: #0096c7 !important;
+}
+
+
+/* ==========================================
+   ΣΤΥΛ ΓΙΑ ΤΟ ΝΕΟ SECTION ΕΞΕΡΕΥΝΗΣΗΣ (ΑΡΧΙΚΗ)
+   ========================================== */
+.explore-tools-section {
+    padding: 60px 5%;
+    background-color: #f8f9fa; /* Ελαφρύ γκρι για να ξεχωρίζει από τα λευκά sections */
+    text-align: center;
+}
+
+.tools-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.tool-card {
+    background: white;
+    padding: 35px 25px;
+    border-radius: 16px;
+    flex: 1;
+    min-width: 280px;
+    max-width: 400px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #e9ecef;
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.tool-icon {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.tool-card h4 {
+    font-size: 20px;
+    color: #2b2d42;
+    margin-bottom: 12px;
+}
+
+.tool-card p {
+    font-size: 14px;
+    color: #6c757d;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    flex-grow: 1; /* Σπρώχνει το κουμπί πάντα στο κάτω μέρος για ομοιομορφία */
+}
+
+.tool-btn {
+    display: inline-block;
+    width: 100%;
+    padding: 12px 25px;
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+    background-color: #0077b6; /* Το κλασικό μπλε */
+    text-decoration: none;
+    border-radius: 30px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 119, 182, 0.15);
+}
+
+.tool-btn:hover {
+    background-color: #0096c7;
+    box-shadow: 0 6px 15px rgba(0, 150, 199, 0.25);
+}
+
+/* Εναλλακτικό χρώμα για τον Planner (Πράσινο-Τυρκουάζ) */
+.tool-btn.planner-color {
+    background-color: #2a9d8f;
+    box-shadow: 0 4px 10px rgba(42, 157, 143, 0.15);
+}
+
+.tool-btn.planner-color:hover {
+    background-color: #35b0a2;
+    box-shadow: 0 6px 15px rgba(53, 176, 162, 0.25);
+}
+
+
+/* ==========================================
+   ΣΤΥΛ ΓΙΑ ΤΟ BANNER ΔΙΑΛΕΙΜΜΑΤΟΣ (ΑΡΧΙΚΗ)
+   ========================================== */
+.travel-break-banner {
+    /* 🖼️ Χρήση μιας open-source, άκρως καλοκαιρινής φωτογραφίας από τις Κυκλάδες */
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                url('images/break-bg.jpg') no-repeat center center/cover;
+    background-attachment: fixed; /* 💥 Εφέ Parallax: Η εικόνα κινείται πιο αργά κατά το scroll! */
+    height: 35vh; /* Ύψος του banner */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.banner-overlay-text {
+    color: white;
+    max-width: 700px;
+}
+
+.quote-text {
+    font-size: 26px;
+    font-style: italic;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    line-height: 1.4;
+}
+
+.quote-sub {
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.9;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+/* 📱 Προσαρμογή για κινητά τηλέφωνα */
+@media screen and (max-width: 600px) {
+    .travel-break-banner {
+        background-attachment: scroll; /* Κλείνει το parallax σε κινητά για καλύτερη απόδοση */
+        height: 25vh;
+    }
+    .quote-text {
+        font-size: 19px;
+    }
+    .quote-sub {
+        font-size: 12px;
+    }
+}
+
+/* ==========================================
+   ΣΤΥΛ ΓΙΑ ΤΙΣ 3 ΦΩΤΟΓΡΑΦΙΕΣ-ΚΑΤΗΓΟΡΙΕΣ (ΑΡΧΙΚΗ)
+   ========================================== */
+.categories-section {
+    padding: 60px 5%;
+    background-color: white;
+    text-align: center;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.category-card {
+    background: #f8f9fa;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    text-decoration: none; /* Αφαιρεί την υπογράμμιση επειδή όλη η κάρτα είναι link */
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    border: 1px solid #e9ecef;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    border-color: #0077b6; /* Το περίγραμμα γίνεται ελαφρώς γαλάζιο στο hover */
+}
+
+.category-img-wrapper {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.category-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.category-card:hover .category-img {
+    transform: scale(1.04); /* Όμορφο, απαλό ζουμ στην εικόνα */
+}
+
+.category-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.category-info h4 {
+    font-size: 19px;
+    color: #0077b6; /* Γαλάζιοι τίτλοι */
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.category-info p {
+    font-size: 14px;
+    color: #6c757d;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+/* ==========================================
+   ΣΤΥΛ ΓΙΑ ΤΑ FAST FACTS (ΑΡΧΙΚΗ ΣΕΛΙΔΑ)
+   ========================================== */
+.fast-facts-section {
+    padding: 40px 5%;
+    background-color: white; /* Δημιουργεί καθαρή αντίθεση με το γκρι από πάνω και το γαλάζιο από κάτω */
+    border-top: 1px solid #edf2f4;
+}
+
+.facts-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.fact-item {
+    flex: 1;
+    min-width: 240px;
+    text-align: center;
+    padding: 10px;
+}
+
+.fact-number {
+    display: block;
+    font-size: 48px;
+    font-weight: 800;
+    color: #0077b6; /* Το κυκλαδίτικο μπλε */
+    font-family: 'Segoe UI', sans-serif;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.fact-desc {
+    font-size: 14px;
+    color: #495057;
+    line-height: 1.5;
+}
+
+.fact-desc strong {
+    color: #2b2d42;
+}
+
+/* 📱 Προσαρμογή για κινητά */
+@media screen and (max-width: 768px) {
+    .fast-facts-section {
+        padding: 30px 5%;
+    }
+    .fact-number {
+        font-size: 38px;
+    }
+}
+
+/* ==========================================
+   ΣΤΥΛ ΓΙΑ ΤΟ ΑΥΤΟΜΑΤΟ CAROUSEL FAST FACTS
+   ========================================== */
+.fast-facts-section {
+    padding: 50px 5% 30px 5%;
+    background-color: white;
+    border-top: 1px solid #edf2f4;
+    position: relative;
+}
+
+.facts-carousel-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    min-height: 140px; /* Κλειδώνει το ύψος για να μην «χορεύει» η σελίδα στην αλλαγή */
+}
+
+.facts-page {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    width: 100%;
+    transition: opacity 0.5s ease-in-out; /* Απαλό σβήσιμο/άναμμα */
+}
+
+.facts-page.hide {
+    display: none !important;
+    opacity: 0;
+}
+
+.facts-page.active {
+    display: flex;
+    opacity: 1;
+}
+
+.fact-item {
+    flex: 1;
+    min-width: 240px;
+    text-align: center;
+    padding: 20px 15px;         
+    border: 2px solid #bde0fe;  /* 🔑 Πιο έντονο (2px) και σκούρο γαλάζιο περίγραμμα */
+    border-radius: 12px;        
+    background-color: #ffffff;
+    box-shadow: 0 3px 10px rgba(0, 119, 182, 0.03); /* Ελαφρώς πιο έντονη σκιά για βάθος */
+    transition: all 0.2s ease;
+}
+
+/* Εφέ όταν ο χρήστης ακουμπάει το ποντίκι πάνω στην πληροφορία */
+.fact-item:hover {
+    transform: translateY(-3px);
+    border-color: #0077b6; /* Στο hover το περίγραμμα γίνεται έντονο κυκλαδίτικο μπλε */
+    box-shadow: 0 5px 15px rgba(0, 119, 182, 0.08);
+}
+
+
+
+.fact-number {
+    display: block;
+    font-size: 48px;
+    font-weight: 800;
+    color: #0077b6;
+    margin-bottom: 10px;
+    line-height: 1;
+}
+
+.fact-desc {
+    font-size: 14px;
+    color: #495057;
+    line-height: 1.5;
+}
+
+/* 🔵 Στυλ για τις τελείες πλοήγησης */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 25px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #dee2e6;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.dot.active-dot {
+    background-color: #0077b6; /* Η ενεργή τελεία γίνεται μπλε */
+}
+
+/* 📱 Προσαρμογή για κινητά (Οι 3 κάρτες γίνονται κάθετες ανά σελίδα) */
+@media screen and (max-width: 768px) {
+    .facts-page.active {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .facts-carousel-container {
+        min-height: auto;
+    }
+    .fact-number {
+        font-size: 38px;
+    }
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN & ΜΕΝΟΥ ΦΥΣΑΡΜΟΝΙΚΑ (ΓΙΑ ΚΙΝΗΤΑ)
+   ========================================================================== */
+
+/* Αρχικά κρύβουμε το κουμπί hamburger στις μεγάλες οθόνες υπολογιστών */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    gap: 5px;
+}
+
+.menu-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #0077b6; /* Το μπλε του site */
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* 📱 Όταν η οθόνη είναι μικρότερη από 850px (Κινητά και Τάμπλετ) */
+@media screen and (max-width: 850px) {
+    .navbar {
+        padding: 10px 5%;
+    }
+
+    /* Εμφανίζουμε το κουμπί της φυσαρμόνικας */
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* 🔑 ΜΕΤΑΜΟΡΦΩΣΗ navbar-menu ΣΕ ΦΥΣΑΡΜΟΝΙΚΑ */
+    .navbar-menu {
+        display: block; /* Γίνεται κάθετο block */
+        position: absolute;
+        top: 100%; /* Ξεκινάει ακριβώς κάτω από τη λευκή μπάρα */
+        left: 0;
+        width: 100%;
+        background-color: white;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+        padding: 0;
+        max-height: 0; /* 🔑 Ύψος μηδέν για να είναι κρυμμένο */
+        overflow: hidden; /* Κρύβει τα στοιχεία */
+        transition: max-height 0.35s ease-in-out, padding 0.35s ease; /* Το εφέ ξεδιπλώματος */
+        z-index: 999;
+    }
+
+    /* Όταν πατηθεί το κουμπί, η φυσαρμόνικα ξεδιπλώνεται δυναμικά */
+    .navbar-menu.mobile-open {
+        max-height: 350px; /* Δίνουμε επαρκές ύψος για να χωρέσει τις 6 επιλογές */
+        padding: 15px 0;
+    }
+
+    .navbar-menu li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar-menu a {
+        display: block;
+        padding: 12px 0;
+        font-size: 16px;
+        border-bottom: 1px solid #f8f9fa; /* Λεπτή διαχωριστική γραμμή ανάμεσα στις επιλογές */
+    }
+    
+    .navbar-menu li:last-child a {
+        border-bottom: none;
+    }
+
+    /* ✨ ANIMATION ΣΤΟ ΚΟΥΜΠΙ HAMBURGER: Οι 3 γραμμές γίνονται "X" όταν ανοίγει! */
+    .menu-toggle.is-active .bar:nth-child(2) {
+        opacity: 0; /* Εξαφανίζεται η μεσαία γραμμή */
+    }
+    .menu-toggle.is-active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg); /* Η πάνω γραμμή στρίβει */
+    }
+    .menu-toggle.is-active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg); /* Η κάτω γραμμή στρίβει */
+    }
+
+    /* Λοιπές προσαρμογές για κινητά */
+    .hero h2 { font-size: 28px; }
+    .hero p { font-size: 15px; }
+    .hero-btn { padding: 12px 25px; font-size: 16px; }
+    .quiz-section-wrapper { padding: 30px 10px; }
+    .quiz-container { padding: 25px 15px; border-radius: 10px; }
+    h1 { font-size: 22px; }
+    .question { font-size: 16px; }
+    .btn-container button { padding: 12px 15px; font-size: 14px; }
+    .result { font-size: 26px; }
+}
+
+/* ==========================================
+   ΣΤΥΛ ΓΙΑ ΤΑ CREDITS ΦΩΤΟΓΡΑΦΙΩΝ (WIKIMEDIA)
+   ========================================== */
+.image-credit {
+    display: block;
+    font-size: 11px !important;
+    color: #8d99ae !important; /* Απαλό γκρίζο χρώμα */
+    margin-top: 5px;
+    margin-bottom: 15px;
+    font-style: italic;
+    line-height: 1.2;
+} 
+
+
+
+.image-credit a {
+    color: #8d99ae !important;
+    text-decoration: underline;
+}
+
+.image-credit a:hover {
+    color: #0077b6 !important;
+}
+

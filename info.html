@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ο Απόλυτος Οδηγός των Κυκλάδων | Cyclades Matcher</title>
+    
+    <!-- SEO & Favicon -->
+    <meta name="description" content="Μάθε τα πάντα για τις Κυκλάδες: Ξακουστά αξιοθέατα, ιστορικούς φάρους και τη μαγική σύνδεση των νησιών με την αρχαία ελληνική Μυθολογία.">
+    <link rel="icon" type="image/png" href="./images/logo.png">
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="layout.js"></script>
+    
+    <style>
+        .info-container { max-width: 900px; margin: 40px auto; background: white; padding: 40px 30px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.04); }
+        
+        /* 🎨 Στυλ για τα Tabs (Καρτέλες) */
+                /* 🎨 Στυλ για τα Tabs (Καρτέλες) - Απόλυτη ευθυγράμμιση */
+        .tabs-menu { 
+            display: flex; 
+            justify-content: center; 
+            gap: 12px; 
+            margin-bottom: 40px; 
+            border-bottom: 2px solid #e9ecef; 
+            padding-bottom: 15px; 
+            flex-wrap: nowrap !important; /* 🔑 Απαγορεύει στο 4ο κουμπί να αλλάξει σειρά */
+            overflow-x: auto; /* 📱 Επιτρέπει οριζόντιο σκρολ σε πολύ μικρά κινητά για να μην σπάει το UI */
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .tab-btn { 
+            background: none; 
+            border: none; 
+            color: #6c757d; 
+            font-size: 15px; /* Ελαφρώς πιο μαζεμένο μέγεθος για να χωράνε άνετα */
+            font-weight: 600; 
+            padding: 10px 15px; 
+            cursor: pointer; 
+            transition: all 0.2s ease; 
+            border-radius: 8px; 
+            text-align: center;
+            flex-shrink: 0; /* Εμποδίζει τα κουμπιά από το να συμπιεστούν άσχημα */
+        }
+
+       /* .tab-btn { background: none; border: none; color: #6c757d; font-size: 16px; font-weight: 600; padding: 10px 20px; cursor: pointer; transition: all 0.2s ease; border-radius: 8px; text-align: center; } */
+        .tab-btn:hover { color: #0077b6; background-color: #f8f9fa; }
+        .tab-btn.active { color: white; background-color: #0077b6; box-shadow: 0 4px 10px rgba(0, 119, 182, 0.2); }
+        
+        /* Στυλ Περιεχομένου */
+        .info-section h3 { color: #0077b6; font-size: 24px; margin-bottom: 20px; border-bottom: 2px solid #bde0fe; padding-bottom: 8px; }
+        .info-section p { font-size: 16px; line-height: 1.7; color: #495057; margin-bottom: 20px; }
+        
+        /* Κάρτες Αξιοθεάτων */
+        .sub-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+        .sub-card { background: #f8f9fa; padding: 20px; border-radius: 10px; border-left: 4px solid #0096c7; }
+        .sub-card h4 { color: #2b2d42; font-size: 17px; margin-bottom: 8px; }
+        .sub-card p { font-size: 14px; margin-bottom: 0; line-height: 1.5; }
+        
+        .internal-link { color: #0077b6; text-decoration: underline; font-weight: 600; }
+        
+        .hide { display: none !important; }
+    </style>
+</head>
+<body>
+
+    <div style="max-width: 900px; margin: 40px auto 0 auto; padding: 0 20px;">
+        <div class="page-header" style="text-align: left;">
+            <h2>📚 Ανακαλύπτοντας τις Κυκλάδες</h2>
+            <p style="color: #6c757d; margin-top: 5px;">Ένα ταξίδι στην ιστορία, τα μνημεία και τους μύθους της ομορφότερης νησιωτικής γωνιάς του Αιγαίου.</p>
+        </div>
+    </div>
+
+    <div class="info-container">
+        <!-- 🗂️ Μενού Καρτελών -->
+        <div class="tabs-menu">
+            <button class="tab-btn active" onclick="switchTab('spots', this)">🌟 Ξακουστά Μέρη</button>
+            <button class="tab-btn" onclick="switchTab('lighthouses', this)">🚢 Ιστορικοί Φάροι</button>
+            <button class="tab-btn" onclick="switchTab('mythology', this)">⚡ Μυθολογία & Ιστορία</button>
+            <button class="tab-btn" onclick="switchTab('traditions', this)">🎉 Έθιμα &amp; Πανηγύρια</button>
+        </div>
+
+        <!-- 🗺️ ΚΑΡΤΕΛΑ 1: ΞΑΚΟΥΣΤΑ ΜΕΡΗ -->
+        <div id="tab-spots" class="info-section">
+            <h3>🌟 Μέρη που Πρέπει να Δεις</h3>
+            <p>Οι Κυκλάδες δεν είναι μόνο παραλίες και νυχτερινή ζωή. Κρύβουν μερικά από τα σπουδαιότερα γεωλογικά, θρησκευτικά και μεσαιωνικά μνημεία της Ελλάδας. Εδώ είναι τα κορυφαία σημεία που αξίζει να βάλεις στην ταξιδιωτική σου λίστα:</p>
+                        <!-- 💡 ΤΟ ΝΕΟ INSIDER TIP ΓΙΑ ΤΑ ΑΞΙΟΘΕΑΤΑ -->
+            <div style="background-color: #d1e7dd; border-left: 5px solid #0f5132; padding: 15px; border-radius: 8px; margin-bottom: 25px; font-size: 14.5px; color: #0f5132; text-align: left;">
+                <strong>💡 Insider Tip:</strong> Οι περισσότεροι αρχαιολογικοί χώροι στις Κυκλάδες (όπως το Ακρωτήρι) έχουν μειωμένο εισιτήριο ή <strong>δωρεάν είσοδο</strong> για φοιτητές και νέους έως 25 ετών! Επίσης, κατά τους καλοκαιρινούς μήνες, είναι προτιμότερο να επισκέπτεσαι τα υπαίθρια μνημεία (Πορτάρα, Σαρακήνικο) νωρίς το πρωί ή κατά το ηλιοβασίλεμα για να αποφύγεις τον καυτό ήλιο.
+            </div>
+
+            <div class="sub-grid">
+                <div class="sub-card">
+                    <h4>🏛️ Η Πορτάρα (Νάξος)</h4>
+                    <span style="display:inline-block; font-size:12px; color:#d97706; font-weight:600; margin-bottom:8px;">🎟️ Είσοδος: Δωρεάν | 🕒 Ανοιχτό: Όλο το 24ωρο</span>
+
+                    <p>Η γιγαντιαία μαρμάρινη πύλη του ναού του Απόλλωνα του 6ου αι. π.Χ. Στέκει επιβλητικά στο νησάκι Παλάτια και προσφέρει το πιο διάσημο ηλιοβασίλεμα του νησιού. Δες τον <a href="island.html?name=naxos" class="internal-link">Οδηγό Νάξου</a>.</p>
+                </div>
+                <div class="sub-card">
+                    <h4>⛪ Μονή Χοζοβιώτισσας (Αμοργός)</h4>
+                    <span style="display:inline-block; font-size:12px; color:#d97706; font-weight:600; margin-bottom:8px;">🎟️ Είσοδος: Δωρεάν (Δεκτές δωρεές) | 👗 Ενδυμασία: Ευπρεπής (καλυμμένοι ώμοι/γόνατα)</span>
+
+                    <p>Ένα αρχιτεκτονικό θαύμα του 11ου αιώνα, κυριολεκτικά σφηνομένο μέσα σε έναν κατακόρυφο βράχο 300 μέτρα πάνω από τη θάλασσα. Δες τον <a href="island.html?name=amorgos" class="internal-link">Οδηγό Αμοργού</a>.</p>
+                </div>
+                <div class="sub-card">
+                    <h4>🌋 Το Σεληνιακό Σαρακήνικο (Μήλος)</h4>
+                    <span style="display:inline-block; font-size:12px; color:#d97706; font-weight:600; margin-bottom:8px;">🎟️ Είσοδος: Δωρεάν | 🕒 Ανοιχτό: Όλο το 24ωρο</span>
+
+                    <p>Ένα μοναδικό γεωλογικό φαινόμενο παγκοσμίως, όπου τα ολόλευκα ηφαιστειακά βράχια έχουν σμιλευτεί από τους ανέμους, θυμίζοντας σεληνιακό τοπίο. Δες τον <a href="island.html?name=milos" class="internal-link">Οδηγό Μήλου</a>.</p>
+                </div>
+                <div class="sub-card">
+                    <h4>🏰 Το Μεσαιωνικό Κάστρο (Σίφνος)</h4>
+                    <span style="display:inline-block; font-size:12px; color:#d97706; font-weight:600; margin-bottom:8px;">🎟️ Είσοδος: Δωρεάν (Κατοικημένος οικισμός) | 🚶‍♂️ Πρόσβαση: Μόνο με τα πόδια</span>
+
+                    <p>Ένας από τους πιο καλοδιατηρημένους οικισμούς οχυρωματικής αρχιτεκτονικής στο Αιγαίο, χτισμένος πάνω σε βράχο με συγκλονιστική θέα. Δες τον <a href="island.html?name=sifnos" class="internal-link">Οδηγό Σίφνου</a>.</p>
+                </div>
+                <div class="sub-card">
+                    <h4>🕳️ Σπήλαιο Αγίου Ιωάννη (Ηρακλειά)</h4>
+                    <span style="display:inline-block; font-size:12px; color:#d97706; font-weight:600; margin-bottom:8px;">🎟️ Είσοδος: Δωρεάν | 🔦 Απαραίτητος εξοπλισμός: Φακός & αθλητικά παπούτσια</span>
+
+                    <p>Το μεγαλύτερο σπήλαιο των Κυκλάδων με εντυπωσιακό διάκοσμο από σταλακτίτες και σταλαγμίτες. Για να μπεις πρέπει να συρθείς! Δες τον <a href="island.html?name=irakleia" class="internal-link">Οδηγό Ηρακλειάς</a>.</p>
+                </div>
+                <div class="sub-card">
+                    <h4>🍄 Το Σκιάδι (Κίμωλος)</h4>
+                    <span style="display:inline-block; font-size:12px; color:#d97706; font-weight:600; margin-bottom:8px;">🎟️ Είσοδος: Δωρεάν | 🕒 Ανοιχτό: Όλο το 24ωρο</span>
+
+                    <p>Ένα σπάνιο γεωλογικό μνημείο. Ένας τεράστιος πέτρινος βράχος σε σχήμα μανιταριού, σμιλεμένος μοναδικά από το φύσημα του ανέμου. Δες τον <a href="island.html?name=kimolos" class="internal-link">Οδηγό Κιμώλου</a>.</p>
+                </div>
+                                <div class="sub-card">
+                    <h4>🏺 Προϊστορικό Ακρωτήρι (Σαντορίνη)</h4>
+                    <span style="display:inline-block; font-size:12px; color:#d97706; font-weight:600; margin-bottom:8px;">🎟️ Είσοδος: Με εισιτήριο (Δωρεάν για νέους/φοιτητές) | 🕒 Ωράριο: 08:30 - 15:30</span>
+
+                    <p>Η «Πομπηία του Αιγαίου». Ένας εκπληκτικά διατηρημένος προϊστορικός οικισμός της Εποχής του Χαλκού που θάφτηκε κάτω από την τέφρα της μεγάλης ηφαιστειακής έκρηξης, διασώζοντας διώροφα κτίρια και μοναδικές τοιχογραφίες. Δες τον <a href="island.html?name=santorini" class="internal-link">Οδηγό Σαντορίνης</a>.</p>
+                </div>
+                <div class="sub-card">
+                    <h4>⛪ Παναγία Εκατονταπυλιανή (Πάρος)</h4>
+                    <span style="display:inline-block; font-size:12px; color:#d97706; font-weight:600; margin-bottom:8px;">🎟️ Είσοδος: Δωρεάν (Δεκτές δωρεές) | 👗 Ενδυμασία: Ευπρεπής (καλυμμένοι ώμοι/γόνατα)</span>
+
+                    <p>Ένας από τους σημαντικότερους παλαιοχριστιανικούς ναούς στην Ελλάδα, χτισμένος τον 4ο αιώνα μ.Χ. από την Αγία Ελένη. Το όνομά της συνδέεται με τον θρύλο των 99 φανερών πυλών και της μίας κρυφής. Δες τον <a href="island.html?name=paros" class="internal-link">Οδηγό Πάρου</a>.</p>
+                </div>
+                <div class="sub-card">
+                    <h4>🎭 Αρχαίο Θέατρο &amp; Κατακόμβες (Μήλος)</h4>
+                    <span style="display:inline-block; font-size:12px; color:#d97706; font-weight:600; margin-bottom:8px;">🎟️ Είσοδος: Με εισιτήριο (Δωρεάν για νέους/φοιτητές) | 🕒 Ωράριο: 08:30 - 15:30</span>
+
+                    <p>Ένα εντυπωσιακό ρωμαϊκό μαρμάρινο θέατρο με θέα στο απέραντο γαλάζιο, χτισμένο δίπλα στις μοναδικές επισκέψιμες παλαιοχριστιανικές κατακόμβες της Ελλάδας, και πολύ κοντά στο σημείο όπου ανακαλύφθηκε η περίφημη Αφροδίτη της Μήλου. Δες τον <a href="island.html?name=milos" class="internal-link">Οδηγό Μήλου</a>.</p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ⚓ ΚΑΡΤΕΛΑ 2: ΦΑΡΟΙ -->
+        <div id="tab-lighthouses" class="info-section hide">
+            <h3>🚢 Οι Πέτρινοι Φρουροί του Αιγαίου</h3>
+            <p>Οι φάροι των Κυκλάδων αποτελούν σπουδαία μνημεία της βιομηχανικής και ναυτικής μας κληρονομιάς. Χτισμένοι σε άγρια, απομονωμένα ακρωτήρια, καθοδηγούν τα πλοία εδώ και αιώνες μέσα στα δύσκολα μελτέμια.</p>
+                        <!-- 🔑 ΤΟ ΝΕΟ INSIDER TIP ΓΙΑ ΤΗΝ ΠΑΓΚΟΣΜΙΑ ΗΜΕΡΑ ΦΑΡΩΝ -->
+            <div style="background-color: #fff3cd; border-left: 5px solid #ffc107; padding: 15px; border-radius: 8px; margin-bottom: 25px; font-size: 14.5px; color: #664d03; text-align: left;">
+                <strong>💡 Insider Tip:</strong> Όλοι οι πέτρινοι φάροι ανήκουν στο Πολεμικό Ναυτικό και η πρόσβαση στο εσωτερικό τους είναι κλειστή. Ωστόσο, η <strong>μόνη μέρα του χρόνου</strong> που ανοίγουν οι πόρτες και οι πύργοι τους για το κοινό είναι η <strong>Παγκόσμια Ημέρα Φάρων</strong> (κάθε χρόνο την τρίτη Κυριακή του Αυγούστου)!
+            </div>
+
+            <div class="sub-grid">
+                <div class="sub-card">
+                    <h4>🚨 Φάρος Τουρλίτης (Άνδρος)</h4>
+                    <span style="display:inline-block; font-size:12px; color:#2a9d8f; font-weight:600; margin-bottom:8px;">⛵ Πρόσβαση: Ορατός από τη Χώρα / Προσέγγιση μόνο με σκάφος</span>
+                    <p>Ο μοναδικός φάρος στον κόσμο χτισμένος πάνω σε έναν μικρό βράχο μέσα στη θάλασσα. Μοιάζει να βγαίνει μέσα από παραμύθι και είναι το σήμα κατατεθέν της Άνδρου. Δες τον <a href="island.html?name=andros" class="internal-link">Οδηγό Άνδρου</a>.</p>
+                </div>
+                <div class="sub-card">
+                    <h4>🚨 Φάρος Ακρωτηρίου (Σαντορίνη)</h4>
+                    <span style="display:inline-block; font-size:12px; color:#2a9d8f; font-weight:600; margin-bottom:8px;">🚗 Πρόσβαση: Εύκολη (Με αυτοκίνητο)</span>
+                    <p>Κατασκευάστηκε το 1892 από γαλλική εταιρεία και είναι ένας από τους παλαιότερους στην Ελλάδα. Βρίσκεται στο νοτιότερο άκρο του νησιού και προσφέρει ένα εναλλακτικό, μαγικό ηλιοβασίλεμα. Δες τον <a href="island.html?name=santorini" class="internal-link">Οδηγό Σαντορίνης</a>.</p>
+                </div>
+                <div class="sub-card">
+                    <h4>🚨 Φάρος Αρμενιστής (Μύκονος)</h4>
+                    <span style="display:inline-block; font-size:12px; color:#2a9d8f; font-weight:600; margin-bottom:8px;">🚗 Πρόσβαση: Εύκολη (Με αυτοκίνητο)</span>
+
+                    <p>Χτισμένος το 1891 μετά το ναυάγιο του πλοίου "Volta", ο επιβλητικός αυτός φάρος στέκει στο ακρωτήρι Βορδώνης και έχει στραμμένη τη θέα του προς την Τήνο, προσφέροντας άγρια, καθηλωτική ομορφιά. Δες τον <a href="island.html?name=mykonos" class="internal-link">Οδηγό Μυκόνου</a>.</p>
+                </div>
+                <div class="sub-card">
+                    <h4>🚨 Φάρος Κόκκα (Κέα)</h4>
+                    <span style="display:inline-block; font-size:12px; color:#2a9d8f; font-weight:600; margin-bottom:8px;">🥾 Πρόσβαση: Μέσω πεζοπορικού μονοπατιού (15-30 λεπτά)</span>
+
+                    <p>Χτισμένος το 1831 στην άκρη του λιμανιού του Αγίου Νικολάου, αποτελεί έναν από τους πρώτους φάρους του ελληνικού φαρικού δικτύου, με σπουδαία ιστορική αξία. Δες τον <a href="island.html?name=kea" class="internal-link">Οδηγό Κέας</a>.</p>
+                </div>
+                                <div class="sub-card">
+                    <h4>🚨 Φάρος Κακόσκελο (Μήλος)</h4>
+                    <span style="display:inline-block; font-size:12px; color:#2a9d8f; font-weight:600; margin-bottom:8px;">🥾 Πρόσβαση: Μέσω μονοπατιού από τον Αδάμαντα (περίπου 30-40 λεπτά)</span>
+
+                    <p>Χτισμένος το 1892 σε ένα απόκρημνο ακρωτήρι στην είσοδο του λιμανιού του Αδάμαντα, ο πέτρινος αυτός φάρος αποτελεί έναν από τους πιο κρίσιμους «φρουρούς» της ναυσιπλοΐας στο κεντρικό Αιγαίο. Δες τον <a href="island.html?name=milos" class="internal-link">Οδηγό Μήλου</a>.</p>
+                </div>
+                <div class="sub-card">
+                    <h4>🚨 Φάρος Κόρακας (Πάρος)</h4>
+                    <span style="display:inline-block; font-size:12px; color:#2a9d8f; font-weight:600; margin-bottom:8px;">🥾 Πρόσβαση: Μέσω πεζοπορικού μονοπατιού (15-30 λεπτά)</span>
+
+                    <p>Στέκει επιβλητικά στην άκρη του ομώνυμου ακρωτηρίου, μέσα στο Περιβαλλοντικό Πάρκο της Νάουσας. Κατασκευάστηκε το 1887 και η πεζοπορία μέχρι εκεί προσφέρει ένα συγκλονιστικό, άγριο τοπίο και ένα από τα ωραιότερα ηλιοβασιλέματα του νησιού. Δες τον <a href="island.html?name=paros" class="internal-link">Οδηγό Πάρου</a>.</p>
+                </div>
+                <div class="sub-card">
+                    <h4>🚨 Φάρος Λιβάδα (Τήνος)</h4>
+                    <span style="display:inline-block; font-size:12px; color:#2a9d8f; font-weight:600; margin-bottom:8px;">🥾 Πρόσβαση: Μέσω πεζοπορικού μονοπατιού (15-30 λεπτά)</span>
+
+                    <p>Χτισμένος το 1910 στο πιο ανεμοδαρμένο και απομονωμένο ακρωτήρι της Τήνου. Το τοπίο γύρω του είναι απόκοσμο, γεμάτο από γιγάντιους, στρογγυλούς γρανιτένιους βράχους που θυμίζουν σεληνιακό σκηνικό, ενώ η θέα στο ανοιχτό πέλαγος κόβει την ανάσα. Δες τον <a href="island.html?name=tinos" class="internal-link">Οδηγό Τήνου</a>.</p>
+                </div>
+                                <div class="sub-card">
+                    <h4>🚨 Φάρος Φάσσα (Άνδρος)</h4>
+                    <span style="display:inline-block; font-size:12px; color:#2a9d8f; font-weight:600; margin-bottom:8px;">🚜 Πρόσβαση: Χωματόδρομος & σύντομο περπάτημα</span>
+
+                    <p>Ο στρατηγικός «φρουρός» του Κάβο Ντόρο. Χτισμένος το 1856 στο βορειότερο άκρο της Άνδρου, καθοδηγεί τα πλοία σε ένα από τα πιο επικίνδυνα και ανεμοδαρμένα περάσματα του Αιγαίου, ακριβώς απέναντι από την Εύβοια. Η πρόσβαση γίνεται μέσω βατού χωματόδρομου και σύντομου περπατήματος. Δες τον <a href="island.html?name=andros" class="internal-link">Οδηγό Άνδρου</a>.</p>
+                </div>
+                <div class="sub-card">
+                    <h4>🚨 Φάρος Κοντό (Σίφνος)</h4>
+                    <span style="display:inline-block; font-size:12px; color:#2a9d8f; font-weight:600; margin-bottom:8px;">🥾 Πρόσβαση: Μέσω βατού μονοπατιού από τις Καμάρες (περίπου 20-25 λεπτά)</span>
+
+                    <p>Σκαρφαλωμένος στα άγρια βράχια στην είσοδο του προστατευμένου κόλπου των Καμαρών (το λιμάνι του νησιού). Κατασκευάστηκε το 1896 και προσφέρει μια υπέροχη, ήσυχη διαδρομή για πεζοπορία με θέα τα καράβια που καταφθάνουν στο νησί και το απέραντο γαλάζιο. Δες τον <a href="island.html?name=sifnos" class="internal-link">Οδηγό Σίφνου</a>.</p>
+                </div>
+
+
+            </div>
+        </div>
+
+        <!-- ⚡ ΚΑΡΤΕΛΑ 3: ΜΥΘΟΛΟΓΙΑ -->
+        <div id="tab-mythology" class="info-section hide">
+            <h3>⚡ Η Γέννηση των Νησιών στους Μύθους</h3>
+            <p>Σύμφωνα με την αρχαία ελληνική μυθολογία, οι Κυκλάδες δεν δημιουργήθηκαν τυχαία. Το όνομά τους προέρχεται από τον νοητό κύκλο που σχηματίζουν γύρω από το ιερό νησί της **Δήλου**, το οποίο θεωρούνταν το κέντρο του αρχαίου κόσμου.</p>
+                        <!-- 🔮 ΤΟ ΝΕΟ INSIDER TIP ΓΙΑ ΤΗ ΜΥΘΟΛΟΓΙΑ -->
+            <div style="background-color: #f3e5f5; border-left: 5px solid #8e24aa; padding: 15px; border-radius: 8px; margin-bottom: 25px; font-size: 14.5px; color: #4a148c; text-align: left;">
+                <strong>💡 Insider Tip:</strong> Οι αρχαίοι μύθοι των Κυκλάδων δεν είναι απλές ιστορίες! Σχεδόν όλοι βασίζονται σε πραγματικά γεωλογικά φαινόμενα (όπως οι ηφαιστειακές εκρήξεις στη Σαντορίνη ή τα παράξενα πετρώματα στη Σέριφο). Ταξιδεύοντας στα νησιά, αναζήτησε τις τοποθεσίες των μύθων για να νιώσεις τη μαγεία της αρχαιότητας.
+            </div>
+
+            <div class="sub-grid">
+                <div class="sub-card">
+                    <h4>☀️ Το Ιερό Νησί της Δήλου</h4>
+                    <span style="display:inline-block; font-size:12px; color:#8e24aa; font-weight:600; margin-bottom:8px;">🏛️ Σήμερα: Επισκέψιμος αρχαιολογικός χώρος (μονοήμερη με καραβάκι από Μύκονο)</span>
+
+                    <p>Ο μύθος λέει ότι η Δήλος ήταν ένα πλωτό νησί που περιπλανιόταν στο Αιγαίο. Ο Ποσειδώνας το ακινητοποίησε με την τρίαινά του για να βρει καταφύγιο η Λητώ και να γεννήσει τους δίδυμους θεούς, τον Απόλλωνα (θεό του φωτός) και την Άρτεμη (θεά του κυνηγιού).</p>
+                </div>
+                <div class="sub-card">
+                    <h4>🔱 Η Οργή του Ποσειδώνα</h4>
+                    <span style="display:inline-block; font-size:12px; color:#8e24aa; font-weight:600; margin-bottom:8px;">🌊 Σύνδεση: Εξηγεί τη δημιουργία του κυκλικού συμπλέγματος των νησιών στο Αιγαίο</span>
+
+                    <p>Μια άλλη εκδοχή αναφέρει ότι οι Κυκλάδες ήταν πανέμορφες νύμφες. Όταν εξόργισαν τον θεό της θάλασσας Ποσειδώνα με τη συμπεριφορά τους, εκείνος τις μεταμόρφωσε σε πέτρινα νησιά, καταδικάζοντάς τις να μένουν για πάντα ακίνητες μέσα στο πέλαγος.</p>
+                </div>
+                <div class="sub-card">
+                    <h4>🍇 Ο Γάμος του Διονύσου (Νάξος)</h4>
+                    <span style="display:inline-block; font-size:12px; color:#8e24aa; font-weight:600; margin-bottom:8px;">🍷 Σύνδεση: Εξηγεί τη μακρά παράδοση της Νάξου στην παραγωγή εξαιρετικού κρασιού και λικέρ Κίτρο</span>
+
+                    <p>Στη Νάξο, ο Θησέας εγκατέλειψε την Αριάδνη αφού σκότωσε τον Μινώταυρο. Εκεί τη βρήκε ο θεός του κρασιού και του γλεντιού, ο Διόνυσος, την ερωτεύτηκε και την παντρεύτηκε, δίνοντας στο νησί την ευλογία να βγάζει το καλύτερο κρασί.</p>
+                </div>
+                <div class="sub-card">
+                    <h4>🌋 Οι Γίγαντες της Μυκόνου</h4>
+                    <span style="display:inline-block; font-size:12px; color:#8e24aa; font-weight:600; margin-bottom:8px;">⛰️ Σήμερα: Οι εντυπωσιακοί μεγάλοι γρανιτένιοι βράχοι που θα δεις διάσπαρτους στο νησί</span>
+
+                    <p>Κατά τη διάρκεια της περιβόητης Γιγαντομαχίας, ο Ηρακλής εξολόθρευσε τους ανυπότακτους Γίγαντες. Λέγεται ότι το νησί της Μυκόνου σχηματίστηκε από τους τεράστιους, απολιθωμένους σωρούς των ηττημένων Γιγάντων που θάφτηκαν κάτω από το έδαφος.</p>
+                </div>
+                                <div class="sub-card">
+                    <h4>🗿 Ο Περσέας και η Μέδουσα (Σέριφος)</h4>
+                    <span style="display:inline-block; font-size:12px; color:#8e24aa; font-weight:600; margin-bottom:8px;">🗿 Σήμερα: Αναζήτησε τους «απολιθωμένους» σχηματισμούς βράχων στον οικισμό Άσπρο Πύργο</span>
+
+                    <p>Η Σέριφος είναι το νησί όπου μεγάλωσε ο μυθικός ήρωας Περσέας.  Όταν επέστρεψε νικητής με το κεφάλι της Μέδουσας, μαρμάρωσε τον κακό βασιλιά Πολυδέκτη και ολόκληρο το παλάτι, εξηγώντας έτσι τους παράξενους ανθρώπινους βράχους που είναι διάσπαρτοι στη Σέριφο σήμερα. Δες τον <a href="island.html?name=serifos" class="internal-link">Οδηγός Σερίφου</a>.</p>
+                </div>
+                <div class="sub-card">
+                    <h4>🦁 Ο Λέοντας και οι Νύμφες των Πηγών (Κέα)</h4>
+                    <span style="display:inline-block; font-size:12px; color:#8e24aa; font-weight:600; margin-bottom:8px;">🦁 Σήμερα: Μπορείς να περπατήσεις στο μονοπάτι για να δεις τον διάσημο, αρχαίο πέτρινο Λέοντα της Τζιάς (6ος αι. π.Χ.)</span>
+
+                    <p>Σύμφωνα με τον μύθο, η Κέα στην αρχαιότητα ονομαζόταν Υδρούσα λόγω των άφθονων νερών της και κατοικούνταν από Νύμφες. Ένας τεράστιος, ζηλότυπος Λέοντας εμφανίστηκε από τα βουνά και τις ανάγκασε να εγκαταλείψουν το νησί, φέρνοντας μεγάλη ξηρασία, η οποία υποχώρησε μόνο όταν οι κάτοικοι έχτισαν έναν μεγάλο πέτρινο ναό προς τιμήν του Σείριου. Δες τον <a href="island.html?name=kea" class="internal-link">Οδηγός Κέας</a>.</p>
+                </div>
+            </div>
+        </div>
+                <!-- 🎉 ΚΑΡΤΕΛΑ 4: ΕΘΙΜΑ & ΠΑΝΗΓΥΡΙΑ -->
+        <div id="tab-traditions" class="info-section hide">
+            <h3>🎉 Η Μαγεία της Κυκλαδίτικης Παράδοσης</h3>
+            <p>Τα κυκλαδίτικα πανηγύρια αποτελούν μια μοναδική εμπειρία ζωής. Δεν πρόκειται απλώς για γλέντια, αλλά για βαθιά ριζωμένα κοινωνικά έθιμα όπου όλο το νησί γίνεται μια παρέα, μοιράζεται παραδοσιακό φαγητό και χορεύει υπό τους ήχους του βιολιού και του λαούτου μέχρι το πρωί.</p>
+            
+            <!-- 💡 INSIDER TIP ΓΙΑ ΤΗΝ ΠΑΡΑΔΟΣΗ -->
+            <div style="background-color: #e2f0d9; border-left: 5px solid #385723; padding: 15px; border-radius: 8px; margin-bottom: 25px; font-size: 14.5px; color: #385723; text-align: left;">
+                <strong>💡 Insider Tip:</strong> Στα περισσότερα παραδοσιακά πανηγύρια, το φαγητό και το κρασί προσφέρονται <strong>εντελώς δωρεάν</strong> σε όλους τους επισκέπτες, καθώς μαγειρεύονται εθελοντικά από τους «πανηγυράδες» του νησιού σε μεγάλα καζάνια!
+            </div>
+
+            <div class="sub-grid">
+                <!-- Έθιμο 1: Αμοργός -->
+                <div class="sub-card">
+                    <h4>🍲 Το Πανηγύρι της Παναγίας (Αμοργός)</h4>
+                    <span style="display:inline-block; font-size:12px; color:#385723; font-weight:600; margin-bottom:8px;">📅 Πότε: 15 Αυγούστου | 📍 Τοποθεσία: Μονή Χοζοβιώτισσας</span>
+                    <p>Το πιο διάσημο πανηγύρι του νησιού. Οι ντόπιοι προσφέρουν σε όλους το παραδοσιακό «πατατάτο» (κρέας με πατάτες μαγειρεμένο σε μεγάλα καζάνια) και άφθονο αμοργιανό ψημένο ρακί. Δες τον <a href="island.html?name=amorgos" class="internal-link">Οδηγό Αμοργού</a>.</p>
+                </div>
+
+                <!-- Έθιμο 2: Σέριφος -->
+                <div class="sub-card">
+                    <h4>🎻 Το Πανηγύρι της Αγίας Άννας (Σέριφος)</h4>
+                    <span style="display:inline-block; font-size:12px; color:#385723; font-weight:600; margin-bottom:8px;">📅 Πότε: 25 Ιουλίου | 🏛️ Έθιμο: Παραδοσιακή Φάβα &amp; Κρασί</span>
+                    <p>Ένα από τα πιο αυθεντικά πανηγύρια. Μετά τη λειτουργία, οι κάτοικοι στρώνουν μεγάλα κοινά τραπέζια με φάβα, ελιές και ντόπιο κρασί, ενώ ακολουθεί παραδοσιακό γλέντι στους στενούς οικισμούς. Δες τον <a href="island.html?name=serifos" class="internal-link">Οδηγό Σερίφου</a>.</p>
+                </div>
+
+                <!-- Έθιμο 3: Μήλος -->
+                <div class="sub-card">
+                    <h4>🐴 Τα Μεγάλα Ιππικά Έθιμα (Μήλος)</h4>
+                    <span style="display:inline-block; font-size:12px; color:#385723; font-weight:600; margin-bottom:8px;">📅 Πότε: 27 Αυγούστου | 🐎 Έθιμο: Πανηγύρι Αγίου Φανουρίου</span>
+                    <p>Στο λιμάνι του Αδάμαντα αναβιώνει ένα εντυπωσιακό έθιμο με φαντασμαγορικές παρελάσεις στολισμένων αλόγων και αναβάτες που κάνουν επιδείξεις. Στο τέλος, μοιράζεται παραδοσιακή φανυρόπιτα. Δες τον <a href="island.html?name=milos" class="internal-link">Οδηγό Μήλου</a>.</p>
+                </div>
+
+                <!-- Έθιμο 4: Νάξος -->
+                <div class="sub-card">
+                    <h4>🎭 Οι Κουδουνάτοι των Χωριών (Νάξος)</h4>
+                    <span style="display:inline-block; font-size:12px; color:#385723; font-weight:600; margin-bottom:8px;">📅 Πότε: Απόκριες | 🏛️ Έθιμο: Διονυσιακά Δρώμενα</span>
+                    <p>Ένα αρχέγονο διονυσιακό έθιμο στα ορεινά χωριά. Άνδρες ζώνονται με βαριές σειρές από δεκάδες κουδούνια προβάτων και τρέχουν στους δρόμους κάνοντας εκκωφαντικό θόρυβο για να ξυπνήσουν τη φύση. Δες τον <a href="island.html?name=naxos" class="internal-link">Οδηγό Νάξου</a>.</p>
+                </div>
+
+                <!-- Έθιμο 5: Αντίπαρος -->
+                <div class="sub-card">
+                    <h4>🔥 Ο Κλήδονας και οι Φωτιές (Αντίπαρος)</h4>
+                    <span style="display:inline-block; font-size:12px; color:#385723; font-weight:600; margin-bottom:8px;">📅 Πότε: 23-24 Ιουνίου | 🏛️ Έθιμο: Κάψιμο των Στεφανιών</span>
+                    <p>Μια πανέμορφη καλοκαιρινή γιορτή. Οι κάτοικοι ανάβουν μεγάλες φωτιές από τα μαγιάτικα στεφάνια στην πλατεία και όλοι, μικροί και μεγάλοι, πηδούν πάνω από τις φλόγες για καλή τύχη και κάθαρση. Δες τον <a href="island.html?name=antiparos" class="internal-link">Οδηγό Αντιπάρου</a>.</p>
+                </div>
+
+                <!-- Έθιμο 6: Τήνος -->
+                <div class="sub-card">
+                    <h4>🍷 Χοιροσφάγια &amp; Κρασοκάζανα (Τήνος)</h4>
+                    <span style="display:inline-block; font-size:12px; color:#385723; font-weight:600; margin-bottom:8px;">📅 Πότε: Νοέμβριος - Δεκέμβριος | 🏛️ Έθιμο: Ομαδικό Φαγοπότι</span>
+                    <p>Ένα βυζαντινό έθιμο συλλογικότητας. Κάθε οικογένεια καλεί όλο το χωριό και τους περαστικούς για να βοηθήσουν στην παρασκευή των αλλαντικών, κάτι που μετατρέπεται σε μεγάλο γλέντι με νέο κρασί. Δες τον <a href="island.html?name=tinos" class="internal-link">Οδηγό Τήνου</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 💡 ΟΛΟΚΛΗΡΩΜΕΝΟ BOX: FAST TRAVEL TIPS (ΕΠΙΛΟΓΟΣ ΣΕΛΙΔΑΣ) -->
+    <!-- 💡 ΑΠΟΛΥΤΑ ΣΥΜΜΕΤΡΙΚΟ BOX: FAST TRAVEL TIPS (5 TIPS) -->
+    <div style="max-width: 900px; margin: 30px auto 60px auto; padding: 0 20px;">
+        <div style="background-color: #e3f2fd; border: 2px solid #0077b6; border-left: 8px solid #0077b6; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,119,182,0.05); text-align: left;">
+            <h4 style="color: #0077b6; font-size: 19px; margin-bottom: 20px; font-weight: 700; display: flex; align-items: center; gap: 8px;">
+                💡 Γρήγορες Συμβουλές για τις Κυκλάδες (Fast Travel Tips)
+            </h4>
+            
+            <!-- 🔑 Διάταξη 2 στηλών: Αριστερά ο μεγάλος Οδηγός Εποχών, Δεξιά το πλέγμα των 4 SOS Tips -->
+            <div style="display: flex; gap: 25px; flex-wrap: wrap;">
+                
+                <!-- ΑΡΙΣΤΕΡΗ ΣΤΗΛΗ: ΟΔΗΓΟΣ ΕΠΟΧΩΝ (Μεγαλύτερο ύψος) -->
+                <div style="flex: 1.2; min-width: 320px;">
+                    <h5 style="color: #0096c7; font-size: 15px; margin-bottom: 8px; font-weight: 600;">📅 Οδηγός Εποχών: Πότε να πας;</h5>
+                    <ul style="list-style-type: none; padding: 0; margin: 0; font-size: 13.5px; line-height: 1.5; color: #495057;">
+                        <li style="margin-bottom: 10px;">
+                            <span style="background-color: #d1e7dd; color: #0f5132; padding: 2px 6px; border-radius: 4px; font-weight: 600; font-size: 11px; margin-right: 5px;">🌱 ΜΑΪΟΣ - ΙΟΥΝΙΟΣ</span>
+                            <strong>Η Αυθεντική Εμπειρία:</strong> Ιδανική περίοδος για ηρεμία, πεζοπορία και πολύ οικονομικές τιμές σε διαμονή και εισιτήρια. Τα νησιά είναι καταπράσινα.
+                        </li>
+                        <li style="margin-bottom: 10px;">
+                            <span style="background-color: #f8d7da; color: #842029; padding: 2px 6px; border-radius: 4px; font-weight: 600; font-size: 11px; margin-right: 5px;">☀️ ΙΟΥΛΙΟΣ - ΑΥΓΟΥΣΤΟΣ</span>
+                            <strong>Η High Season:</strong> Η περίοδος της απόλυτης ζωντάνιας, του κοσμοπολίτικου vibe και των beach parties. Απαραίτητη η έγκαιρη κράτηση, καθώς οι τιμές κορυφώνονται.
+                        </li>
+                        <li>
+                            <span style="background-color: #fff3cd; color: #664d03; padding: 2px 6px; border-radius: 4px; font-weight: 600; font-size: 11px; margin-right: 5px;">🍂 ΣΕΠΤΕΜΒΡΙΟΣ - ΟΚΤΩΒΡΙΟΣ</span>
+                            <strong>Το Ιδανικό Sweet Spot:</strong> Η θάλασσα έχει την πιο ζεστή θερμοκρασία όλου του έτους, ο κόσμος αραιώνει και το Αιγαίο προσφέρει μια μοναδική αίσθηση γαλήνης.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- ΔΕΞΙΑ ΣΤΗΛΗ: ΠΛΕΓΜΑ 4 SHORT TIPS (2x2) -->
+                <div style="flex: 2; min-width: 320px; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px;">
+                    
+                    <!-- Tip 2 -->
+                    <div>
+                        <h5 style="color: #0096c7; font-size: 14.5px; margin-bottom: 5px; font-weight: 600;">💨 Τι να προσέξεις με τα Μελτέμια</h5>
+                        <p style="font-size: 13.5px; color: #495057; line-height: 1.4; margin: 0;">Όταν το μελτέμι είναι δυνατό, <strong>να επιλέγεις πάντα τις νότιες παραλίες</strong> του νησιού, οι οποίες προστατεύονται από τα βουνά και έχουν γαλήνια νερά.</p>
+                    </div>
+
+                    <!-- Tip 3 -->
+                    <div>
+                        <h5 style="color: #0096c7; font-size: 14.5px; margin-bottom: 5px; font-weight: 600;">🚢 Έγκαιρα Ακτοπλοϊκά</h5>
+                        <p style="font-size: 13.5px; color: #495057; line-height: 1.4; margin: 0;">Για τα Παρασκευοσαββατοκύριακα, κλείσε τα εισιτήριά σου τουλάχιστον <strong>2-3 εβδομάδες νωρίτερα</strong>, καθώς τα γκαράζ των πλοίων γεμίζουν γρήγορα.</p>
+                    </div>
+
+                    <!-- Tip 4 -->
+                    <div>
+                        <h5 style="color: #0096c7; font-size: 14.5px; margin-bottom: 5px; font-weight: 600;">🚗 Χρειάζομαι Αυτοκίνητο;</h5>
+                        <p style="font-size: 13.5px; color: #495057; line-height: 1.4; margin: 0;">Σε μεγάλα νησιά (Νάξος, Άνδρος) το όχημα είναι απαραίτητο. Στα μικρά (Κουφονήσια, Αντίπαρος) μετακινείσαι άνετα με τα πόδια ή τοπικά καραβάκια.</p>
+                    </div>
+
+                    <!-- 🔑 ΝΕΟ Tip 5 (Το 5ο στοιχείο για τέλεια γεωμετρία) 
+                    <div>
+                        <h5 style="color: #0096c7; font-size: 14.5px; margin-bottom: 5px; font-weight: 600;">🏥 Φαρμακεία &amp; Πρώτες Βοήθειες</h5>
+                        <p style="font-size: 13.5px; color: #495057; line-height: 1.4; margin: 0;">Στα μικρά νησιά (π.χ. Μικρές Κυκλάδες) δεν υπάρχουν μεγάλα φαρμακεία ή νοσοκομεία, παρά μόνο τοπικά ιατρεία. Έχε πάντα μαζί σου ένα <strong>βασικό φαρμακείο</strong> για ασφάλεια.</p>
+                    </div>
+                    -->
+                </div>
+
+    
+    <!-- ⚙️ JavaScript για την αλλαγή των Tabs (Offline Friendly) -->
+    <script>
+                function switchTab(tabName, clickedButton) {
+            // 1. Αφαιρούμε το active στυλ από όλα τα κουμπιά
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // 2. Προσθέτουμε το active στυλ στο κουμπί που πατήθηκε
+            clickedButton.classList.add('active');
+            
+            // 3. Κρύβουμε όλα τα sections
+            document.getElementById('tab-spots').classList.add('hide');
+            document.getElementById('tab-lighthouses').classList.add('hide');
+            document.getElementById('tab-mythology').classList.add('hide');
+            document.getElementById('tab-traditions').classList.add('hide'); // 🔑 Η ΝΕΑ ΠΡΟΣΘΗΚΗ
+            
+            // 4. Εμφανίζουμε ΜΟΝΟ το επιλεγμένο section
+            document.getElementById('tab-' + tabName).classList.remove('hide');
+        }
+
+        
+    </script>
+</body>

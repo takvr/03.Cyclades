@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Όλα τα Νησιά των Κυκλάδων | Cyclades Matcher</title>
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <!-- Βασικά SEO Meta Tags για τη Google -->
+    <meta name="description" content="Εξερεύνησε και φίλτραρε τα 23 κατοικημένα νησιά των Κυκλάδων. Βρες ρομαντικούς, κοσμοπολίτικους ή ήσυχους προορισμούς.">
+    
+    <!-- Open Graph Meta Tags για Viber, Facebook, Messenger -->
+    <meta property="og:title" content="Όλα τα Νησιά των Κυκλάδων | Cyclades Matcher">
+    <meta property="og:description" content="Δες αναλυτικούς οδηγούς για κάθε νησί των Κυκλάδων, μάθε τις καλύτερες παραλίες και insider tips.">
+    <meta property="og:image" content="images/hero-bg.jpg">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="style.css">
+    <script src="layout.js"></script>
+    <script src="data.js"></script>
+    <style>
+        .islands-page-wrapper {
+            padding: 40px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .page-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .page-header h2 {
+            color: #0077b6;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        .page-header p {
+            color: #6c757d;
+            font-size: 16px;
+        }
+
+        /* 🎨 ΣΤΥΛ ΓΙΑ ΤΑ ΚΟΥΜΠΙΑ-ΦΙΛΤΡΑ */
+        .filters-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        .filter-btn {
+            background-color: white;
+            border: 2px solid #0077b6;
+            color: #0077b6;
+            padding: 8px 18px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background-color: #0077b6;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 119, 182, 0.2);
+        }
+
+        /* ΣΤΥΛ ΓΙΑ ΤΟ GRID ΚΑΙ ΤΙΣ ΚΑΡΤΕΣ */
+        .islands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            width: 100%;
+        }
+        .island-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .island-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .card-content h4 {
+            font-size: 20px;
+            color: #2b2d42;
+            margin-bottom: 8px;
+        }
+        .card-vibe {
+            display: inline-block;
+            background-color: #e3f2fd;
+            color: #0077b6;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            align-self: flex-start;
+        }
+        .card-btn {
+            background-color: #0077b6;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            padding: 10px;
+            border-radius: 6px;
+            font-weight: 500;
+            margin-top: auto;
+            transition: background 0.2s ease;
+        }
+        .card-btn:hover {
+            background-color: #0096c7;
+        }
+        
+        /* Κλάση που κρύβει τις κάρτες που δεν ταιριάζουν στο φίλτρο */
+        .card-hide {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+
+    <section class="islands-page-wrapper">
+        <div class="page-header">
+            <h2>🏝️ Τα 24 Κατοικημένα Νησιά</h2>
+            <p>Εξερεύνησε τους μοναδικούς προορισμούς των Κυκλάδων και βρες τον επόμενο σταθμό σου.</p>
+        </div>
+
+        <!-- 1. HTML ΓΙΑ ΤΑ ΚΟΥΜΠΙΑ ΦΙΛΤΡΩΝ -->
+        <div class="filters-container">
+            <button class="filter-btn active" onclick="filterIslands('all', this)">✨ Όλα</button>
+            <button class="filter-btn" onclick="filterIslands('Ρομαντικό', this)">❤️ Ρομαντικά</button>
+            <button class="filter-btn" onclick="filterIslands('Κοσμοπολίτικο', this)">🎉 Party / Κοσμοπολίτικα</button>
+            <button class="filter-btn" onclick="filterIslands('Οικογενειακό', this)">👨‍👩‍👧‍👦 Οικογενειακά</button>
+            <button class="filter-btn" onclick="filterIslands('Αυθεντικό', this)">🌿 Ήσυχα / Αυθεντικά</button>
+        </div>
+
+        <div class="islands-grid" id="islands-list"></div>
+    </section>
+
+    <!-- 2. JAVASCRIPT ΓΙΑ ΤΗ ΔΥΝΑΜΙΚΗ ΔΗΜΙΟΥΡΓΙΑ ΚΑΙ ΦΙΛΤΡΑΡΙΣΜΑ -->
+    <script>
+        const grid = document.getElementById("islands-list");
+
+        // Σχεδιάζουμε δυναμικά και τις 23 κάρτες από το data.js
+        Object.keys(islandData).forEach(id => {
+            const island = islandData[id];
+            
+            const card = document.createElement("div");
+            card.className = "island-card";
+            // Κρατάμε το vibe του νησιού ως attribute στην κάρτα για να το ελέγχουμε μετά
+            card.setAttribute("data-vibe", island.vibe); 
+            
+            card.innerHTML = `
+                <img src="${island.img}" alt="${island.name}" class="card-img" loading="lazy">
+                <div class="card-content">
+                    <h4>${island.name}</h4>
+                    <span class="card-vibe">${island.vibe}</span>
+                    <a href="island.html?name=${id}" class="card-btn">Δες τον Οδηγό</a>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+
+        // ⚙️ Η ΣΥΝΑΡΤΗΣΗ ΦΙΛΤΡΑΡΙΣΜΑΤΟΣ
+        function filterIslands(vibeCategory, clickedButton) {
+            // 1. Αλλαγή του ενεργού στυλ στα κουμπιά
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            clickedButton.classList.add('active');
+
+            // 2. Έλεγχος και κρύψιμο/εμφάνιση καρτών
+            const cards = document.querySelectorAll('.island-card');
+            cards.forEach(card => {
+                const cardVibeText = card.getAttribute('data-vibe');
+                
+                if (vibeCategory === 'all') {
+                    // Αν πατήσει "Όλα", εμφανίζονται όλες οι κάρτες
+                    card.classList.remove('card-hide');
+                } else {
+                    // Αν το κείμενο του vibe (π.χ. "❤️ Ρομαντικό & Εξωτικό") περιέχει τη λέξη-κλειδί (π.χ. "Ρομαντικό")
+                    // Σημείωση: Λόγω της Μυκόνου που γράφει Luxury, ελέγχουμε και για "Κοσμοπολίτικο" ή "Clubbing"
+                    if (cardVibeText.includes(vibeCategory) || 
+                        (vibeCategory === 'Коσμοπολίτικο' && (cardVibeText.includes('Κοσμοπολίτικο') || cardVibeText.includes('Clubbing')))) {
+                        card.classList.remove('card-hide');
+                    } else {
+                        card.classList.add('card-hide');
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>

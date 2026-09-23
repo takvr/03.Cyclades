@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Οδηγός Νησιού | Cyclades Matcher</title>
+    <link rel="icon" type="image/png" href="images/logo.png">
+     <!-- Δυναμικά Open Graph Tags (Θα τα γεμίσει η JavaScript) -->
+    <meta id="meta-desc" name="description" content="Ταξιδιωτικός οδηγός Κυκλάδων.">
+    <meta id="og-title" property="og:title" content="Οδηγός Νησιού">
+    <meta id="og-desc" property="og:description" content="Μάθε τα πάντα για το νησί σου.">
+    <meta id="og-image" property="og:image" content="">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .island-container { max-width: 900px; margin: 40px auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.05); }
+        .island-header h2 { color: #0077b6; font-size: 32px; margin-bottom: 10px; }
+        .island-meta { color: #6c757d; font-size: 14px; margin-bottom: 20px; display: flex; gap: 15px; }
+        .island-image { width: 100%; height: 450px; object-fit: cover; border-radius: 10px; margin-bottom: 25px; }
+        .island-section { margin-bottom: 30px; }
+        .island-section h3 { color: #0096c7; font-size: 20px; margin-bottom: 12px; border-bottom: 2px solid #bde0fe; padding-bottom: 5px; }
+        .island-section p, .island-section ul { font-size: 16px; line-height: 1.6; color: #495057; }
+        .island-section ul { padding-left: 20px; margin-top: 8px; }
+        .island-section li { margin-bottom: 8px; }
+        .back-home-btn { background-color: #0077b6; color: white; text-decoration: none; padding: 12px 25px; border-radius: 8px; font-weight: 500; display: inline-block; margin-top: 10px; transition: background 0.2s ease; }
+        .back-home-btn:hover { background-color: #0096c7; }
+        @media screen and (max-width: 600px) {
+            .island-container { margin: 15px; padding: 15px; }
+            .island-header h2 { font-size: 24px; }
+            .island-image { height: 250px; }
+            .island-meta { flex-direction: column; gap: 5px; }
+        }
+    </style>
+    <script src="data.js"></script>
+    <script src="layout.js"></script>  
+</head>
+<body>
+
+    <!--
+    <nav class="navbar">
+        <a href="index.html" class="logo">🏝️ Cyclades Matcher</a>
+        <ul class="navbar-menu">
+            <li><a href="index.html">Αρχική</a></li>
+            <li><a href="index.html#quiz-anchor">Το Κουίζ</a></li>
+        </ul>
+    </nav>
+    -->
+
+    <div class="island-container">
+        <div class="island-header">
+            <h2 id="island-name">🏝️ Φορτώνει...</h2>
+            <div class="island-meta">
+                <span id="island-dist">🚢 Φορτώνει...</span>
+                <span id="island-vibe">💎 Φορτώνει...</span>
+            </div>
+        </div>
+
+        <img id="island-img" src="" alt="" class="island-image">
+
+        <!-- 🔑 ΤΟ ΝΕΟ DIV ΓΙΑ ΤΑ CREDITS (Μπαίνει ακριβώς κάτω από τη φωτογραφία) -->
+        <div id="photo-credit-box" class="image-credit" style="text-align: right; margin-top: 5px; padding-right: 5px;"></div>
+
+
+        <div class="island-section">
+            <h3>Γενικά για το νησί</h3>
+            <p id="island-desc">Φορτώνει...</p>
+        </div>
+
+        <div class="island-section">
+            <h3>🏖️ Κορυφαίες Παραλίες</h3>
+            <ul id="island-beaches"></ul>
+        </div>
+
+        <div class="island-section">
+            <h3>💡 Insider Tips</h3>
+            <ul id="island-tips"></ul>
+        </div>
+
+                 <!-- 🗺️ SECTION ΓΙΑ ΤΟΝ ΔΙΑΔΡΑΣΤΙΚΟ ΧΑΡΤΗ 
+        <div class="island-section" style="text-align: center;">
+            <h3>🗺️ Γεωγραφικός Χάρτης</h3>
+            // Ένα έτοιμο link που θα το γεμίζουμε με JavaScript --
+            <a id="island-map-btn" href="" target="_blank" class="hero-btn" style="background-color: #4caf50; display: inline-block; font-size: 15px; padding: 12px 25px; border-radius: 8px; margin-top: 15px;">
+                📍 Προβολή στο Google Maps
+            </a>
+        </div>  -->
+
+
+
+        <div style="text-align: center; border-top: 1px solid #dee2e6; padding-top: 20px;">
+            <a href="index.html" class="back-home-btn">← Πίσω στην Αρχική</a>
+        </div>
+    </div>
+
+    <!-- Η JavaScript που θα γεμίζει τη σελίδα δυναμικά -->
+    <!-- Η JavaScript που διαβάζει και γεμίζει τη σελίδα δυναμικά για τα 24 νησιά -->
+    <script>
+       
+        // 🔑 Η ΔΙΟΡΘΩΣΗ: Βάζουμε όλη τη λογική να περιμένει να φορτώσουν τα πάντα (και το layout.js)
+        window.addEventListener('load', function() {
+            // ⚙️ Ο ΑΛΓΟΡΙΘΜΟΣ ΑΝΑΓΝΩΣΗΣ URL (Query Parameters)
+            const urlParams = new URLSearchParams(window.location.search);
+            const islandKey = urlParams.get('name');
+
+            // Έλεγχος αν το νησί υπάρχει στη βάση μας
+            if (islandKey && islandData[islandKey]) {
+                const data = islandData[islandKey];
+                
+                // 1. Γεμίζουμε τα βασικά στοιχεία
+                document.title = `${data.name} - Ταξιδιωτικός Οδηγός | Cyclades Matcher`;
+                document.getElementById("island-name").innerText = `🏝️ ${data.name}`;
+                document.getElementById("island-dist").innerText = data.dist;
+                document.getElementById("island-vibe").innerText = data.vibe;
+                document.getElementById("island-img").src = data.img;
+                document.getElementById("island-img").alt = data.name;
+                document.getElementById("island-desc").innerText = data.desc;
+
+                // 📸 ΑΣΦΑΛΗΣ & ΔΥΝΑΜΙΚΗ ΕΜΦΑΝΙΣΗ CREDITS ΦΩΤΟΓΡΑΦΙΑΣ
+const creditBox = document.getElementById("photo-credit-box");
+if (creditBox) {
+    // Διαβάζουμε το αγγλικό ID του νησιού από το URL (π.χ. ?name=kea)
+    const urlParams = new URLSearchParams(window.location.search);
+    const islandId = urlParams.get('name') ? urlParams.get('name').toLowerCase() : "";
+
+    if (islandId === "kea") {
+        creditBox.innerHTML = `📸 Φωτογραφία: By <a href="https://wikimedia.org" target="_blank">Phso2</a> - Own work, <a href="https://creativecommons.org" target="_blank">CC BY 3.0</a>`;
+    } else if (islandId === "irakleia") {
+        creditBox.innerHTML = `📸 Φωτογραφία: By <a href="https://wikimedia.org" target="_blank">Sgroey</a> - Own work, <a href="https://creativecommons.org" target="_blank">CC BY-SA 4.0</a>`;
+    } else {
+        creditBox.innerHTML = ""; // Στα υπόλοιπα νησιά μένει άδειο και κρυφό
+    }
+}
+
+
+
+
+
+                //ΧΑΡΤΗΣ ..............
+                                // 🔑 Η ΑΛΕΞΙΣΦΑΙΡΗ ΛΥΣΗ: Παίρνει το έτοιμο link από το data.js
+                //const mapBtn = document.getElementById("island-map-btn");
+                //if (mapBtn && data.map) {
+                  //  mapBtn.href = data.map;
+                // }
+
+
+
+
+                
+
+            // 🚢 ΔΗΜΙΟΥΡΓΙΑ ΔΥΝΑΜΙΚΩΝ ΣΥΝΔΕΣΜΩΝ ΓΙΑ FERRYHOPPER & BOOKING.COM
+            const travelButtonsBlock = document.createElement("div");
+            travelButtonsBlock.style.marginTop = "25px";
+            travelButtonsBlock.style.display = "flex";
+            travelButtonsBlock.style.gap = "15px";
+            travelButtonsBlock.style.flexWrap = "wrap";
+            travelButtonsBlock.style.justifyContent = "center";
+
+            // 1. Το κουμπί του Ferryhopper
+            const ferryLink = `https://ferryhopper.com`;
+            
+            // 2. Το κουμπί του Booking  
+            // 🔑 Η ΜΟΝΗ ΣΤΑΘΕΡΗ ΛΥΣΗ ΓΙΑ ΤΟ BOOKING.COM
+            // Στέλνει τον χρήστη απευθείας στην επίσημη σελίδα της Booking για τις Κυκλάδες
+            const bookingLink = `https://booking.com`;
+
+
+
+                        travelButtonsBlock.innerHTML = `
+                <a href="${ferryLink}" target="_blank" class="hero-btn" style="background-color: #ff5a5f; display: inline-block; font-size: 15px; padding: 12px 25px; border-radius: 8px;">
+                    🚢 Εισιτήρια στο Ferryhopper
+                </a>
+                <a href="${bookingLink}" target="_blank" class="hero-btn" style="background-color: #003580; display: inline-block; font-size: 15px; padding: 12px 25px; border-radius: 8px;">
+                    🏢 Διαμονή στο Booking.com
+                </a>
+            `;
+
+
+            // Τοποθέτηση των κουμπιών ακριβώς κάτω από τη γενική περιγραφή του νησιού
+            document.getElementById("island-desc").after(travelButtonsBlock);
+
+                
+                // 2. Γεμίζουμε τη λίστα με τις Παραλίες
+                const beachesList = document.getElementById("island-beaches");
+                beachesList.innerHTML = ""; // Καθαρισμός
+                data.beaches.forEach(beach => {
+                    let li = document.createElement("li");
+                    li.innerHTML = beach;
+                    beachesList.appendChild(li);
+                });
+
+                // 3. Γεμίζουμε τη λίστα με τα Insider Tips
+                const tipsList = document.getElementById("island-tips");
+                tipsList.innerHTML = ""; // Καθαρισμός
+                data.tips.forEach(tip => {
+                    let li = document.createElement("li");
+                    li.innerText = tip;
+                    tipsList.appendChild(li);
+                });
+            } else {
+                // Αν κάποιος πληκτρολογήσει λάθος όνομα, τον επιστρέφει αυτόματα στην Αρχική
+                window.location.href = "index.html";
+            }
+        });
+
+</script>
+</body>
+</html>
